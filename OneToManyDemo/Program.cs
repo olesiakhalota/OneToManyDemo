@@ -11,7 +11,10 @@ namespace OneToManyDemo
 
             //configuration
             builder.Services.AddDbContext<BoekenDBContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+
 
 
             // Add services to the container.
@@ -36,7 +39,7 @@ namespace OneToManyDemo
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");  //action=Filters - direct naar goede view
 
             app.Run();
         }

@@ -1,0 +1,68 @@
+﻿@* @using OneToManyDemo.Models.ViewModels.EditBoekViewModel    //import a model to the file in Views -> Shared -> _ViewsOImports.cshtml 
+ @model OneToManyDemo.Models.ViewModels.EditBoekViewModel *@
+
+
+@model EditBoekViewModel
+
+@{
+	ViewData["Title"] = "Edit"; /* ViewData is a Title of the tab */
+}
+
+<h2>Edit</h2>
+
+<div>
+	<form asp-action="Edit" asp-controller="Boeken">
+
+		 @* HIDDEN BoekId FIELD -> 1ste maneer *@
+		 @* <input type="hidden" asp-for="BoekId" /> *@    @* VERY IMPORTANT PART!!! User doesn't see this field   *@
+
+		 @*  HIDDEN BoekId FIELD -> 2de maneer *@
+		<div class="form-group">
+			<label asp-for="BoekId" class="control-label"></label>
+			<input asp-for="BoekId" readonly class="form-control" />
+			<span asp-validation-for="BoekId" class="text-danger"></span>
+		</div>
+
+
+		<div class="form-group">
+			<label asp-for="Titel" class="control-label"></label>
+			<input asp-for="Titel" class="form-control" />
+			<span asp-validation-for="Titel" class="text-danger"></span>
+		</div>
+
+		<div>
+			<label asp-for="AuteurId" class="control-label"></label>
+
+			<select asp-for="AuteurId" class="form-control"
+					asp-items="@(new SelectList(Model.Auteurs,"AuteurId","Naam"))"> </select>
+
+
+			<span asp-validation-for="AuteurId" class="text-danger"></span>
+		</div>
+
+		@* added *@
+		<div class="form-group">
+			<label>Beschikbaarheid</label><br />
+			<input type="checkbox" asp-for="IsAvailable" /> Beschikbaar<br />
+			<input type="checkbox" asp-for="IsNewRelease" /> Nieuwe Uitgave<br />
+			<input type="checkbox" asp-for="IsBestseller" /> Bestseller<br />
+		</div>
+		<div class="form-group">
+			<label>Type Binding</label><br />
+			<input type="radio" asp-for="BindingType" value="1" /> Hardcover<br />
+			<input type="radio" asp-for="BindingType" value="2" /> Paperback<br />
+			<input type="radio" asp-for="BindingType" value="3" /> Ebook<br />
+			<span asp-validation-for="BindingType" class="text-danger"></span>
+		</div>
+		@* added *@
+
+		<div class="form-group">
+			<input asp-action="Edit" asp-controller="Boeken" type="submit" value="Save" class="btm btn-primary"/>
+		</div>
+
+	</form>
+</div>
+<div>
+	<a asp-action="Filters">Terug naar de lijst</a>
+</div>
+

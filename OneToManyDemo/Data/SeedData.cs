@@ -18,13 +18,13 @@ namespace OneToManyDemo.Data
 
             modelBuilder.Entity<Boek>().HasData(
                 new Boek { BoekId = 1, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 2, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 3, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 4, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 5, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 6, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 7, Titel = "De anvonturen van Code 1", AuteurId = 1 },
-                new Boek { BoekId = 8, Titel = "De anvonturen van Code 1", AuteurId = 1 }
+                new Boek { BoekId = 2, Titel = "De anvonturen van Code 2", AuteurId = 2 },
+                new Boek { BoekId = 3, Titel = "De anvonturen van Code 3", AuteurId = 3 },
+                new Boek { BoekId = 4, Titel = "De anvonturen van Code 4", AuteurId = 4 },
+                new Boek { BoekId = 5, Titel = "De anvonturen van Code 5", AuteurId = 1 },
+                new Boek { BoekId = 6, Titel = "De anvonturen van Code 6", AuteurId = 2 },
+                new Boek { BoekId = 7, Titel = "De anvonturen van Code 7", AuteurId = 3 },
+                new Boek { BoekId = 8, Titel = "De anvonturen van Code 8", AuteurId = 4 }
                 );
             
         }

@@ -1,0 +1,41 @@
+﻿@model OneToManyDemo.Models.ViewModels.BoekenViewModelONE
+
+<form asp-action="FilterONE" asp-controller="Boeken" method="get">
+	<select asp-for="GeselecteerdeAuteurId" asp-items="@(new SelectList(Model.Auteurs, "AuteurId", "Naam"))" class="form-control">
+		<option value="">Selecteer een auteur</option>
+	</select>
+	<button type="submit" class="btn btn-outline-primary">Filter</button>
+</form>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Book Id</th>
+			<th>Titel</th>
+			<th>Auteur</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var boek in Model.Boeken)
+		{
+			<tr>
+				<td>@boek.BoekId</td>
+				<td>@boek.Titel</td>
+				<td>@boek.Auteur.Naam</td>
+			</tr>
+		}
+	</tbody>
+
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				<b> 
+					<i> Aantal boeken: @Model.Boeken.Count</i>
+				</b>
+			</td>
+		</tr>
+	</tfoot>
+
+</table>
+
+
